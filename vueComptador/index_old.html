@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
+    <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Contador: {{ comptador }}</h1>
+      <button @click="incrementar">Incrementar</button>
+      <button @click="decrementar">Decrementar</button>
+    </div>
+    
+    <script>
+      const { createApp, ref } = Vue;
+    
+      createApp({
+        setup() {
+          // Creem la variable comptador i la inicialitzem a zero
+          const comptador = ref(0);
+    
+          // Creem funció incrementar
+          const incrementar = () => {
+            comptador.value++;
+          };
+    
+          // Creem funció decrementar
+          const decrementar = () => {
+            comptador.value--;
+          };
+    
+          // Retornem l'estat de les variables
+          return {
+            comptador,
+            incrementar,
+            decrementar
+          };
+        }
+      }).mount('#app');    
+    </script>
+  </body>
+</html>
